@@ -1,0 +1,19 @@
+{
+  "name": "مداد | Midad - تطبيق القراءة والكتب المسموعة",
+  "short_name": "مداد | Midad",
+  "description": "الموقع الرسمي لتحميل تطبيق مداد Midad للأندرويد: مكتبة شاملة للقراءة، بحث في عشرات المكتبات، قارئ PDF وEPUB، وكتب مسموعة.",
+  "start_url": "./",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#065f46",
+  "background_color": "#f5efe1",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

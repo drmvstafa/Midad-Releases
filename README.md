@@ -7,6 +7,7 @@
 **مكتبتك العربية والعالمية الشاملة للقراءة والاستماع — سريع، خفيف، ومصمم للتركيز.**  
 *Your all-in-one Arabic & English eBook reader, audiobook player, and smart discovery library for Android.*
 
+[![Official Website](https://img.shields.io/badge/الموقع_الرسمي-Midad_Website-0f766e?style=for-the-badge&logo=googlechrome&logoColor=white)](https://drmvstafa.github.io/Midad-Releases/)
 [![Download Latest APK](https://img.shields.io/badge/تحميل_أحدث_إصدار-Midad_v1.1_APK-047857?style=for-the-badge&logo=android&logoColor=white)](https://github.com/drmvstafa/Midad-Releases/releases/latest)
 [![Platform](https://img.shields.io/badge/Android-7.0%2B-3b82f6?style=for-the-badge)](https://github.com/drmvstafa/Midad-Releases/releases/latest)
 [![Language](https://img.shields.io/badge/العربية_%26_English-RTL%20Native-d97706?style=for-the-badge)](https://github.com/drmvstafa/Midad-Releases/releases/latest)

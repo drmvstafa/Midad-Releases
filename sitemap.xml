@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://drmvstafa.github.io/Midad-Releases/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://drmvstafa.github.io/Midad-Releases/assets/icon.png</image:loc>
+      <image:title>شعار تطبيق مداد | Midad Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://drmvstafa.github.io/Midad-Releases/assets/home.png</image:loc>
+      <image:title>الواجهة الرئيسية لتطبيق مداد للقراءة والكتب</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://drmvstafa.github.io/Midad-Releases/assets/book_detail.png</image:loc>
+      <image:title>صفحة تفاصيل الكتاب وروابط التحميل المباشر في مكتبة مداد</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://drmvstafa.github.io/Midad-Releases/assets/audiobooks.png</image:loc>
+      <image:title>قسم الكتب المسموعة في تطبيق مداد</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://drmvstafa.github.io/Midad-Releases/assets/audiobook_chapters.png</image:loc>
+      <image:title>فصول الكتاب الصوتي والتحميل بدون إنترنت في مداد</image:title>
+    </image:image>
+  </url>
+</urlset>
