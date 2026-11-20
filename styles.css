@@ -367,6 +367,16 @@ a,
   background-color: var(--bg-subtle);
 }
 
+.btn-telegram {
+  background-color: #0369a1;
+  color: #ffffff;
+}
+
+.btn-telegram:hover {
+  background-color: #075985;
+  transform: translateY(-1px);
+}
+
 .header-dl-btn {
   display: none;
 }
@@ -516,6 +526,19 @@ a,
   font-weight: 700;
   padding: 0.3rem 0.7rem;
   border-radius: 9999px;
+}
+
+.highlight-chip-link {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.highlight-chip-link:hover {
+  background-color: var(--brand-primary);
+  color: var(--brand-contrast);
+  text-decoration: none;
 }
 
 /* Interactive Phone Showcase */
@@ -1069,23 +1092,48 @@ a,
   display: none;
 }
 
-/* Developer & Support Box */
-.support-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: 1.125rem;
-  padding: 1.5rem;
+/* Telegram Community & Developer Support Grid */
+.community-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
+}
+
+@media (min-width: 820px) {
+  .community-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.support-card {
+  background: var(--bg-page);
+  border: 1px solid var(--border-default);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.15rem;
   box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease;
+}
+
+.support-card:hover {
+  border-color: var(--border-strong);
+}
+
+.telegram-card {
+  border-color: rgba(3, 105, 161, 0.35);
+}
+
+.telegram-card:hover {
+  border-color: #0369a1;
 }
 
 @media (min-width: 768px) {
   .support-card {
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
   }
 }
 
