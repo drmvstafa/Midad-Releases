@@ -29,18 +29,6 @@
   ];
 
   var currentScreenIndex = 0;
-  var toastTimer = null;
-
-  function showToast(message) {
-    var toastEl = document.getElementById("site-toast");
-    if (!toastEl) return;
-    toastEl.textContent = message;
-    toastEl.classList.add("is-visible");
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () {
-      toastEl.classList.remove("is-visible");
-    }, 2600);
-  }
 
   function applyTheme(theme) {
     var safeTheme = ALLOWED_THEMES.indexOf(theme) !== -1 ? theme : "sepia";
@@ -74,14 +62,6 @@
     });
   }
 
-  function formatBytes(bytes) {
-    if (!Number.isFinite(bytes) || bytes <= 0) return null;
-    if (bytes < 1024 * 1024) {
-      return Math.round(bytes / 1024) + " KB";
-    }
-    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
-  }
-
   function hydrateLatestRelease() {
     if (typeof fetch !== "function") return;
     fetch(RELEASE_API_URL, { headers: { Accept: "application/vnd.github+json" } })
@@ -102,30 +82,13 @@
           });
         }
 
-        var apkAsset = null;
         if (Array.isArray(data.assets)) {
-          apkAsset = data.assets.find(function (asset) {
+          var apkAsset = data.assets.find(function (asset) {
             return asset && typeof asset.name === "string" && asset.name.toLowerCase().endsWith(".apk");
           });
-        }
-
-        if (apkAsset) {
-          if (apkAsset.browser_download_url) {
+          if (apkAsset && apkAsset.browser_download_url) {
             document.querySelectorAll(".js-apk-link").forEach(function (link) {
               link.href = apkAsset.browser_download_url;
-            });
-          }
-
-          var readableSize = formatBytes(apkAsset.size);
-          if (readableSize) {
-            document.querySelectorAll(".js-release-size").forEach(function (el) {
-              el.textContent = readableSize;
-            });
-          }
-
-          if (typeof apkAsset.download_count === "number") {
-            document.querySelectorAll(".js-release-downloads").forEach(function (el) {
-              el.textContent = apkAsset.download_count + " تحميل";
             });
           }
         }
@@ -257,32 +220,10 @@
     });
   }
 
-  function initCopyButtons() {
-    var copyBtn = document.getElementById("copy-instapay-btn");
-    if (!copyBtn) return;
-
-    copyBtn.addEventListener("click", function () {
-      var value = copyBtn.getAttribute("data-copy-value") || "01027608911";
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard
-          .writeText(value)
-          .then(function () {
-            showToast("تم نسخ رقم InstaPay: " + value);
-          })
-          .catch(function () {
-            showToast("رقم InstaPay: " + value);
-          });
-      } else {
-        showToast("رقم InstaPay: " + value);
-      }
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
     hydrateLatestRelease();
     initShowcaseAndGallery();
     initFaqAccordion();
-    initCopyButtons();
   });
 })();
