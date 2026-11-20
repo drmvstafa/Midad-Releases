@@ -155,10 +155,10 @@
   <a class="skip-link" href="#main-content">انتقل مباشرة إلى المحتوى</a>
 
   <!-- Top Navigation -->
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand-link" href="#top" aria-label="الرئيسية - تطبيق مداد Midad">
-        <img class="brand-icon" src="assets/icon.png" alt="شعار تطبيق مداد Midad" width="38" height="38" />
+        <img class="brand-icon" src="assets/icon.png" alt="شعار تطبيق مداد Midad" width="34" height="34" />
         <span>
           مداد <span class="brand-sub">| Midad</span>
         </span>
@@ -168,9 +168,9 @@
         <ul class="nav-links">
           <li><a href="#features">المميزات</a></li>
           <li><a href="#screenshots">لقطات التطبيق</a></li>
-          <li><a href="#install">طريقة التثبيت</a></li>
-          <li><a href="#faq">الأسئلة الشائعة</a></li>
-          <li><a href="#developer">الدعم والتواصل</a></li>
+          <li><a href="#install">التثبيت</a></li>
+          <li><a href="#faq">الأسئلة</a></li>
+          <li><a href="#developer">التواصل</a></li>
         </ul>
       </nav>
 
@@ -202,19 +202,31 @@
     <section id="top" class="hero" aria-labelledby="hero-heading">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span>الإصدار الرسمي <span class="ltr-inline js-release-version">v1.1</span> • أندرويد 7.0+</span>
+          <div class="hero-brand-lockup">
+            <img
+              class="hero-app-logo"
+              src="assets/icon.png"
+              alt="أيقونة تطبيق مداد Midad"
+              width="72"
+              height="72"
+            />
+            <div class="hero-brand-meta">
+              <div class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>الإصدار <span class="ltr-inline js-release-version">v1.1</span> • Android 7.0+</span>
+              </div>
+              <p class="hero-brand-tagline">تطبيق مداد للقراءة والكتب المسموعة</p>
+            </div>
           </div>
 
           <h1 id="hero-heading" class="hero-title">
             <span class="hero-title-accent font-serif-ar">مكتبة مداد (Midad)</span>
-            — قراءة شاملة وكتب مسموعة في تطبيق واحد خفيف
+            — قراءة شاملة وكتب مسموعة في مكان واحد
           </h1>
 
           <p class="hero-lead">
-            <strong>تطبيق مداد (Midad)</strong> هو بوابتك الموحدة للوصول إلى عشرات المكتبات العربية والعالمية، وقراءة كتب
-            <span class="ltr-inline">PDF</span> و<span class="ltr-inline">EPUB</span> براحة تامة للعين، والاستماع للكتب الصوتية مباشرة أو بدون إنترنت.
+            ابحث وحمّل من عشرات المكتبات العربية والعالمية، واقرأ ملفات
+            <span class="ltr-inline">PDF</span> و<span class="ltr-inline">EPUB</span> براحة للعين، واستمع للكتب الصوتية مباشرة أو أوفلاين.
           </p>
 
           <div class="hero-cta-row">
@@ -223,7 +235,7 @@
               href="https://github.com/drmvstafa/Midad-Releases/releases/download/v1.1/Midad.apk"
               download="Midad.apk"
             >
-              <span>تحميل تطبيق مداد <span class="ltr-inline">Midad.apk</span></span>
+              <span>تحميل <span class="ltr-inline">Midad.apk</span></span>
             </a>
 
             <a
@@ -232,19 +244,14 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              صفحة الإصدارات على GitHub
+              صفحة الإصدارات
             </a>
           </div>
 
-          <div class="release-meta" aria-label="بيانات ملف التحميل">
-            <div class="meta-item">
-              <span class="meta-label">أحدث إصدار</span>
-              <span class="meta-value ltr-inline js-release-version">v1.1</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">التوافق</span>
-              <span class="meta-value">Android 7.0+ (API 24)</span>
-            </div>
+          <div class="hero-highlights" aria-label="ملخص التطبيق">
+            <span class="highlight-chip">✓ بدون إعلانات</span>
+            <span class="highlight-chip">✓ بحث مباشر في المكتبات</span>
+            <span class="highlight-chip">✓ صوتيات أوفلاين</span>
           </div>
         </div>
 
@@ -320,14 +327,11 @@
     </section>
 
     <!-- Supported Sources Section -->
-    <section class="section" aria-labelledby="sources-heading">
+    <section class="section section-compact reveal" aria-labelledby="sources-heading">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header section-header-tight">
           <span class="section-eyebrow">بحث موحد في مكان واحد</span>
           <h2 id="sources-heading" class="section-title">كل مصادر الكتب العربية والعالمية بين يديك</h2>
-          <p class="section-desc">
-            بدلاً من التنقل بين عشرات المواقع والروابط المشتتة، يبحث <strong>تطبيق مداد</strong> عن كتابك في أكبر المكتبات الرقمية ويرتب لك أبرز الروابط المتاحة في شاشة واحدة واضحة.
-          </p>
         </div>
 
         <div class="sources-wrap" aria-label="المكتبات المدعومة في البحث">
@@ -346,71 +350,91 @@
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section section-alt" aria-labelledby="features-heading">
+    <!-- Features Section (Interactive Category Tabs) -->
+    <section id="features" class="section section-alt section-compact reveal" aria-labelledby="features-heading">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header section-header-tight">
           <span class="section-eyebrow">مصمم لعشاق القراءة</span>
-          <h2 id="features-heading" class="section-title">أبرز مميزات برنامج مداد <span class="ltr-inline">Midad</span></h2>
-          <p class="section-desc">
-            تجربة متكاملة تجمع سرعة البحث، متانة القارئ الداخلي، وراحة الاستماع الصوتي مع الحفاظ التام على خصوصيتك.
-          </p>
+          <h2 id="features-heading" class="section-title">مميزات برنامج مداد <span class="ltr-inline">Midad</span></h2>
         </div>
 
-        <div class="features-grid">
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">📚</div>
-            <h3 class="feature-title">بحث ذكي وترتيب أوضح الروابط</h3>
+        <div class="feature-filter-tabs" role="tablist" aria-label="تصفية المميزات">
+          <button type="button" class="feature-filter-btn" role="tab" aria-selected="true" data-feature-tab="all">الكل</button>
+          <button type="button" class="feature-filter-btn" role="tab" aria-selected="false" data-feature-tab="search">البحث والمكتبات</button>
+          <button type="button" class="feature-filter-btn" role="tab" aria-selected="false" data-feature-tab="reader">القارئ الداخلي</button>
+          <button type="button" class="feature-filter-btn" role="tab" aria-selected="false" data-feature-tab="audio">الكتب المسموعة</button>
+          <button type="button" class="feature-filter-btn" role="tab" aria-selected="false" data-feature-tab="smart">التوصيات</button>
+        </div>
+
+        <div class="features-grid" id="features-grid">
+          <article class="feature-card" data-feature-cat="search">
+            <div class="feature-card-head">
+              <div class="feature-icon" aria-hidden="true">📚</div>
+              <h3 class="feature-title">بحث ذكي وترتيب أوضح الروابط</h3>
+            </div>
             <ul class="feature-list">
-              <li>بحث فوري عبر عشرات المكتبات العربية والأجنبية من شريط واحد.</li>
-              <li>تجميع النسخ والملفات المتاحة للكتاب وحصر أفضل الروابط بوضوح للتحميل بنقرة واحدة.</li>
-              <li>دعم فتح وإدارة ملفات <span class="ltr-inline">PDF</span> و<span class="ltr-inline">EPUB</span> و<span class="ltr-inline">AZW3</span> المحفوظة على هاتفك.</li>
+              <li>بحث فوري عبر عشرات المكتبات وحصر أفضل الروابط للتحميل بنقرة واحدة.</li>
+              <li>دعم فتح وإدارة ملفات <span class="ltr-inline">PDF</span> و<span class="ltr-inline">EPUB</span> و<span class="ltr-inline">AZW3</span> المحلية.</li>
             </ul>
           </article>
 
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">📖</div>
-            <h3 class="feature-title">قارئ داخلي مريح للعين</h3>
+          <article class="feature-card" data-feature-cat="reader">
+            <div class="feature-card-head">
+              <div class="feature-icon" aria-hidden="true">📖</div>
+              <h3 class="feature-title">قارئ داخلي مريح للعين</h3>
+            </div>
             <ul class="feature-list">
-              <li>يفتح افتراضياً على وضع الورق الدافئ <span class="ltr-inline">(Sepia)</span> لتقليل الإجهاد أثناء الجلسات الطويلة.</li>
-              <li>تبديل سلس بين الوضع الداكن، النهاري، والمريح مع استكمال القراءة تلقائياً من آخر صفحة.</li>
-              <li>أدوات القلم والرسم الحر، تظليل السطور (الماركر)، الإشارات المرجعية، فهرس الفصول، والترجمة الفورية.</li>
+              <li>وضع الورق الدافئ <span class="ltr-inline">(Sepia)</span> افتراضياً مع الوضع الداكن والنهاري.</li>
+              <li>أدوات القلم والتظليل والإشارات وفهرس الفصول والترجمة وحفظ آخر صفحة.</li>
             </ul>
           </article>
 
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🎧</div>
-            <h3 class="feature-title">كتب مسموعة أوفلاين + ويدجت الشاشة</h3>
+          <article class="feature-card" data-feature-cat="audio">
+            <div class="feature-card-head">
+              <div class="feature-icon" aria-hidden="true">🎧</div>
+              <h3 class="feature-title">كتب مسموعة أوفلاين + ويدجت</h3>
+            </div>
             <ul class="feature-list">
-              <li>بث صوتي مباشر عبر الإنترنت أو تحميل فصول محددة للاستماع بدون اتصال.</li>
-              <li>تحديد نطاق الفصول وترتيبها، التحكم بسرعة الصوت من <span class="ltr-inline">0.5x</span> حتى <span class="ltr-inline">2.0x</span>، ومؤقت النوم.</li>
-              <li>مشغّل مصغر مستمر وويدجت خارجية أنيقة للشاشة الرئيسية بألوان متجددة.</li>
+              <li>بث مباشر أو تحميل فصول محددة للاستماع بدون نت مع تحكم بالسرعة ومؤقت نوم.</li>
+              <li>مشغّل مصغر مستمر وويدجت أنيقة للشاشة الرئيسية بألوان متجددة.</li>
             </ul>
           </article>
 
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">✨</div>
-            <h3 class="feature-title">ترشيحات على ذوقك وعادة قراءة يومية</h3>
+          <article class="feature-card" data-feature-cat="smart">
+            <div class="feature-card-head">
+              <div class="feature-icon" aria-hidden="true">✨</div>
+              <h3 class="feature-title">ترشيحات محلية وعادة القراءة</h3>
+            </div>
             <ul class="feature-list">
-              <li>محرك توصيات محلي يعمل على جهازك فقط: على ذوقك الخاص، توسيع الآفاق، والأكثر رواجاً.</li>
-              <li>عرض آراء وتقييمات القراء الحقيقية قبل اختيار كتابك القادم.</li>
-              <li>نظام مهمة القراءة اليومية وسلسلة الأيام <span class="ltr-inline">(Streak)</span> مع ويدجت خاص لمتابعة هدفك.</li>
+              <li>توصيات ذكية على جهازك فقط وآراء القراء الحقيقية قبل اختيار كتابك.</li>
+              <li>سلسلة القراءة اليومية <span class="ltr-inline">(Streak)</span> مع ويدجت خاص لمتابعة هدفك.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Screenshot Gallery -->
-    <section id="screenshots" class="section" aria-labelledby="screenshots-heading">
+    <!-- Horizontal Swipeable Screenshot Gallery -->
+    <section id="screenshots" class="section section-compact reveal" aria-labelledby="screenshots-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">جولة داخل التطبيق</span>
-          <h2 id="screenshots-heading" class="section-title">لقطات حقيقية من واجهة مداد</h2>
-          <p class="section-desc">اضغط على أي صورة لمعاينتها بحجم واضح والتنقل بين شاشات التطبيق.</p>
+        <div class="gallery-topbar">
+          <div class="section-header section-header-tight" style="margin-bottom: 0;">
+            <span class="section-eyebrow">جولة داخل التطبيق</span>
+            <h2 id="screenshots-heading" class="section-title">لقطات حقيقية من واجهة مداد</h2>
+            <p class="section-desc">اسحب يميناً أو يساراً لتصفح الشاشات، واضغط على أي لقطة لتكبيرها.</p>
+          </div>
+
+          <div class="gallery-nav-controls" aria-label="التنقل بين لقطات التطبيق">
+            <button type="button" id="gallery-prev-btn" class="gallery-arrow-btn" aria-label="اللقطة السابقة">
+              ›
+            </button>
+            <button type="button" id="gallery-next-btn" class="gallery-arrow-btn" aria-label="اللقطة التالية">
+              ‹
+            </button>
+          </div>
         </div>
 
-        <div class="gallery-grid">
+        <div class="gallery-carousel" id="gallery-carousel" tabindex="0" aria-label="معرض لقطات شاشة تطبيق مداد القابل للسحب">
           <figure class="gallery-card">
             <button
               type="button"
@@ -428,7 +452,7 @@
             </button>
             <figcaption>
               <h3 class="gallery-caption-title">الواجهة الرئيسية</h3>
-              <p class="gallery-caption-sub">شريط البحث السريع، سلسلة القراءة اليومية، وترشيحات الكتب الذكية.</p>
+              <p class="gallery-caption-sub">البحث السريع وسلسلة القراءة وترشيحات الكتب.</p>
             </figcaption>
           </figure>
 
@@ -449,7 +473,7 @@
             </button>
             <figcaption>
               <h3 class="gallery-caption-title">صفحة الكتاب والروابط</h3>
-              <p class="gallery-caption-sub">حصر أفضل الروابط من قهوة 8 غرب ومكتبة نور وغيرها بنقرة تحميل مباشرة.</p>
+              <p class="gallery-caption-sub">أفضل 5 روابط تحميل من قهوة 8 غرب ومكتبة نور.</p>
             </figcaption>
           </figure>
 
@@ -470,7 +494,7 @@
             </button>
             <figcaption>
               <h3 class="gallery-caption-title">الكتب المسموعة</h3>
-              <p class="gallery-caption-sub">تصفح واستماع مباشر للكتب المسموعة مع شريط تشغيل ثابت وأنيق.</p>
+              <p class="gallery-caption-sub">تصفح واستماع مباشر مع مشغّل صوتي ثابت.</p>
             </figcaption>
           </figure>
 
@@ -490,66 +514,63 @@
               />
             </button>
             <figcaption>
-              <h3 class="gallery-caption-title">الفصول والتحميل أوفلاين</h3>
-              <p class="gallery-caption-sub">تحديد الفصول وتحميلها للاستماع في أي وقت بدون إنترنت.</p>
+              <h3 class="gallery-caption-title">الفصول أوفلاين</h3>
+              <p class="gallery-caption-sub">تحميل الفصول للاستماع في أي وقت بدون نت.</p>
             </figcaption>
           </figure>
+        </div>
+
+        <div class="gallery-dots" id="gallery-dots" aria-label="مؤشر شرائح المعرض">
+          <button type="button" class="gallery-dot" data-slide="0" aria-current="true" aria-label="الانتقال إلى اللقطة 1"></button>
+          <button type="button" class="gallery-dot" data-slide="1" aria-current="false" aria-label="الانتقال إلى اللقطة 2"></button>
+          <button type="button" class="gallery-dot" data-slide="2" aria-current="false" aria-label="الانتقال إلى اللقطة 3"></button>
+          <button type="button" class="gallery-dot" data-slide="3" aria-current="false" aria-label="الانتقال إلى اللقطة 4"></button>
         </div>
       </div>
     </section>
 
-    <!-- Installation Guide -->
-    <section id="install" class="section section-alt" aria-labelledby="install-heading">
+    <!-- Shortened 3-Step Installation Guide -->
+    <section id="install" class="section section-alt section-compact reveal" aria-labelledby="install-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">دليل سريع وآمن</span>
-          <h2 id="install-heading" class="section-title">طريقة تحميل وتثبيت <span class="ltr-inline">Midad.apk</span></h2>
-          <p class="section-desc">ملف التطبيق خفيف وآمن ومرفوع مباشرة ضمن إصدارات المستودع الرسمي على GitHub.</p>
+        <div class="section-header section-header-tight">
+          <span class="section-eyebrow">في أقل من دقيقة</span>
+          <h2 id="install-heading" class="section-title">طريقة التثبيت (<span class="ltr-inline">Android 7.0+</span>)</h2>
         </div>
 
         <div class="steps-grid">
           <article class="step-card">
             <div class="step-num" aria-hidden="true">1</div>
-            <h3 class="step-title">حمّل ملف APK الرسمي</h3>
-            <p class="step-desc">
-              اضغط على زر التحميل المباشر في أعلى الصفحة لتنزيل ملف <span class="ltr-inline">Midad.apk</span> لأحدث إصدار.
-            </p>
+            <div>
+              <h3 class="step-title">حمّل <span class="ltr-inline">Midad.apk</span></h3>
+              <p class="step-desc">اضغط زر التحميل المباشر لتنزيل أحدث إصدار من GitHub.</p>
+            </div>
           </article>
 
           <article class="step-card">
             <div class="step-num" aria-hidden="true">2</div>
-            <h3 class="step-title">افتح الملف على هاتفك</h3>
-            <p class="step-desc">
-              بعد انتهاء التنزيل، افتح ملف التطبيق من إشعار التحميل أو من تطبيق الملفات على هاتفك.
-            </p>
+            <div>
+              <h3 class="step-title">اسمح بالتثبيت ثم ثبّت</h3>
+              <p class="step-desc">افتح الملف وفعّل إذن التثبيت من هذا المصدر إن طُلب.</p>
+            </div>
           </article>
 
           <article class="step-card">
             <div class="step-num" aria-hidden="true">3</div>
-            <h3 class="step-title">اسمح بالتثبيت ثم ثبّت</h3>
-            <p class="step-desc">
-              إذا طلب النظام إذن التثبيت من هذا المصدر (<span class="ltr-inline">Install unknown apps</span>)، فعّله ثم اضغط تثبيت.
-            </p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-num" aria-hidden="true">4</div>
-            <h3 class="step-title">ابدأ القراءة فوراً</h3>
-            <p class="step-desc">
-              يعمل بسلاسة على <span class="ltr-inline">Android 7.0 (API 24)</span> فأحدث دون تعقيد أو خطوات تسجيل إجبارية.
-            </p>
+            <div>
+              <h3 class="step-title">ابدأ القراءة فوراً</h3>
+              <p class="step-desc">يعمل مباشرة دون تسجيل حساب أو إعدادات معقدة.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section" aria-labelledby="faq-heading">
+    <section id="faq" class="section section-compact reveal" aria-labelledby="faq-heading">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header section-header-tight">
           <span class="section-eyebrow">إجابات واضحة</span>
           <h2 id="faq-heading" class="section-title">الأسئلة الشائعة حول تطبيق ومكتبة مداد</h2>
-          <p class="section-desc">كل ما تحتاج معرفته قبل تحميل برنامج مداد على جهازك الأندرويد.</p>
         </div>
 
         <div class="faq-list">
@@ -653,14 +674,14 @@
     </section>
 
     <!-- Developer & Support -->
-    <section id="developer" class="section section-alt" aria-labelledby="dev-heading">
+    <section id="developer" class="section section-alt section-compact reveal" aria-labelledby="dev-heading">
       <div class="container">
         <div class="support-card">
           <div>
             <span class="section-eyebrow">المطور والدعم</span>
             <h2 id="dev-heading" class="section-title">تطوير <span class="ltr-inline">Mostafa Mostafa</span></h2>
             <p class="section-desc">
-              يسعدني تلقي اقتراحاتكم وملاحظاتكم لتحسين <strong>تطبيق مداد</strong> باستمرار. جميع روابط التواصل متاحة هنا وداخل نافذة <strong>About Midad</strong> بالضغط على كلمة <em>مداد</em> في الشريط العلوي بالتطبيق.
+              للاقتراحات والتواصل المباشر عبر الروابط التالية أو من نافذة <strong>About Midad</strong> داخل التطبيق.
             </p>
           </div>
 

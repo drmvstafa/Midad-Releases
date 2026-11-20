@@ -98,19 +98,221 @@
       });
   }
 
+  function initScrollHeader() {
+    var header = document.getElementById("site-header");
+    if (!header) return;
+
+    var lastY = window.scrollY || 0;
+    var ticking = false;
+
+    function updateHeader() {
+      var currentY = window.scrollY || 0;
+      if (currentY <= 40) {
+        header.classList.remove("is-hidden");
+      } else if (currentY > lastY + 6 && currentY > 72) {
+        header.classList.add("is-hidden");
+      } else if (currentY < lastY - 6) {
+        header.classList.remove("is-hidden");
+      }
+      lastY = currentY;
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  function initRevealAnimations() {
+    var items = document.querySelectorAll(".reveal");
+    if (!items.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -24px 0px" }
+    );
+
+    items.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  function initFeatureFilter() {
+    var tabs = document.querySelectorAll(".feature-filter-btn");
+    var cards = document.querySelectorAll("#features-grid .feature-card");
+    if (!tabs.length || !cards.length) return;
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var cat = tab.getAttribute("data-feature-tab") || "all";
+        tabs.forEach(function (t) {
+          t.setAttribute("aria-selected", t === tab ? "true" : "false");
+        });
+
+        cards.forEach(function (card) {
+          var match = cat === "all" || card.getAttribute("data-feature-cat") === cat;
+          card.hidden = !match;
+        });
+      });
+    });
+  }
+
   function setHeroScreenshot(index) {
     var safeIndex = (index + SCREENSHOTS.length) % SCREENSHOTS.length;
     currentScreenIndex = safeIndex;
     var item = SCREENSHOTS[safeIndex];
     var img = document.getElementById("hero-screen-img");
     if (img) {
-      img.src = item.src;
-      img.alt = item.alt;
+      img.classList.add("is-switching");
+      window.setTimeout(function () {
+        img.src = item.src;
+        img.alt = item.alt;
+        img.classList.remove("is-switching");
+      }, 110);
     }
 
     var tabs = document.querySelectorAll(".showcase-tab");
     tabs.forEach(function (tab, idx) {
       tab.setAttribute("aria-selected", idx === safeIndex ? "true" : "false");
+    });
+  }
+
+  function initGalleryCarousel() {
+    var track = document.getElementById("gallery-carousel");
+    if (!track) return;
+
+    var slides = Array.prototype.slice.call(track.querySelectorAll(".gallery-card"));
+    var dots = Array.prototype.slice.call(document.querySelectorAll(".gallery-dot"));
+    var prevBtn = document.getElementById("gallery-prev-btn");
+    var nextBtn = document.getElementById("gallery-next-btn");
+    var activeSlide = 0;
+
+    function updateDots(index) {
+      activeSlide = index;
+      dots.forEach(function (dot, idx) {
+        dot.setAttribute("aria-current", idx === index ? "true" : "false");
+      });
+    }
+
+    function goToSlide(index) {
+      var safeIdx = (index + slides.length) % slides.length;
+      updateDots(safeIdx);
+      if (slides[safeIdx] && slides[safeIdx].scrollIntoView) {
+        slides[safeIdx].scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest"
+        });
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goToSlide(activeSlide - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goToSlide(activeSlide + 1);
+      });
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        var idx = parseInt(dot.getAttribute("data-slide") || "0", 10);
+        goToSlide(idx);
+      });
+    });
+
+    // Update active dot while user swipes horizontally
+    var scrollTimer = null;
+    track.addEventListener(
+      "scroll",
+      function () {
+        if (scrollTimer) window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(function () {
+          var trackRect = track.getBoundingClientRect();
+          var trackCenter = trackRect.left + trackRect.width / 2;
+          var bestIdx = 0;
+          var bestDist = Infinity;
+
+          slides.forEach(function (slide, idx) {
+            var rect = slide.getBoundingClientRect();
+            var center = rect.left + rect.width / 2;
+            var dist = Math.abs(center - trackCenter);
+            if (dist < bestDist) {
+              bestDist = dist;
+              bestIdx = idx;
+            }
+          });
+          updateDots(bestIdx);
+        }, 70);
+      },
+      { passive: true }
+    );
+
+    // Mouse drag support on desktop trackpads/mice
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragStartScroll = 0;
+    var moved = false;
+
+    track.addEventListener("mousedown", function (e) {
+      if (e.button !== 0) return;
+      isDragging = true;
+      moved = false;
+      dragStartX = e.pageX;
+      dragStartScroll = track.scrollLeft;
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      if (!isDragging) return;
+      var delta = e.pageX - dragStartX;
+      if (Math.abs(delta) > 6) moved = true;
+      track.scrollLeft = dragStartScroll - delta;
+    });
+
+    window.addEventListener("mouseup", function () {
+      if (!isDragging) return;
+      isDragging = false;
+      if (moved) {
+        track.dataset.justDragged = "1";
+        window.setTimeout(function () {
+          delete track.dataset.justDragged;
+        }, 80);
+      }
+    });
+
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goToSlide(activeSlide + 1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goToSlide(activeSlide - 1);
+      }
     });
   }
 
@@ -173,6 +375,8 @@
 
     document.querySelectorAll(".js-open-lightbox").forEach(function (btn) {
       btn.addEventListener("click", function () {
+        var track = document.getElementById("gallery-carousel");
+        if (track && track.dataset.justDragged === "1") return;
         var idx = parseInt(btn.getAttribute("data-index") || "0", 10);
         openLightbox(idx);
       });
@@ -222,8 +426,12 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
+    initScrollHeader();
+    initRevealAnimations();
+    initFeatureFilter();
     hydrateLatestRelease();
     initShowcaseAndGallery();
+    initGalleryCarousel();
     initFaqAccordion();
   });
 })();
