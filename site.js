@@ -158,26 +158,6 @@
     });
   }
 
-  function initFeatureFilter() {
-    var tabs = document.querySelectorAll(".feature-filter-btn");
-    var cards = document.querySelectorAll("#features-grid .feature-card");
-    if (!tabs.length || !cards.length) return;
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        var cat = tab.getAttribute("data-feature-tab") || "all";
-        tabs.forEach(function (t) {
-          t.setAttribute("aria-selected", t === tab ? "true" : "false");
-        });
-
-        cards.forEach(function (card) {
-          var match = cat === "all" || card.getAttribute("data-feature-cat") === cat;
-          card.hidden = !match;
-        });
-      });
-    });
-  }
-
   function setHeroScreenshot(index) {
     var safeIndex = (index + SCREENSHOTS.length) % SCREENSHOTS.length;
     currentScreenIndex = safeIndex;
@@ -428,7 +408,6 @@
     initTheme();
     initScrollHeader();
     initRevealAnimations();
-    initFeatureFilter();
     hydrateLatestRelease();
     initShowcaseAndGallery();
     initGalleryCarousel();
